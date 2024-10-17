@@ -15,6 +15,7 @@ export default function GradeSOAPNotes() {
 
   const handleUpload = (info: any) => {
     const { status } = info.file;
+    console.log("Handle upload", info);
     if (status !== "uploading") {
       console.log(info.file, info.fileList);
     }
@@ -41,14 +42,20 @@ export default function GradeSOAPNotes() {
       <Card>
         <Tabs defaultActiveKey="1">
           <TabPane tab="Upload File" key="1">
-            <Upload
+            <Upload.Dragger
               accept=".docx,.pdf"
               fileList={fileList}
               multiple
+              style={{ padding: 16 }}
               onChange={handleUpload}
             >
-              <Button icon={<UploadOutlined />}>Click to Upload</Button>
-            </Upload>
+              <p className="ant-upload-drag-icon">
+                <UploadOutlined />
+              </p>
+              <p className="ant-upload-text text-clip">
+                Click or drag file to this area to upload
+              </p>
+            </Upload.Dragger>
             <Typography.Text
               type="secondary"
               style={{ display: "block", marginTop: 8 }}
