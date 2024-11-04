@@ -115,7 +115,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <Title level={2}>Dashboard</Title>
+      <Title level={2}>Grade Dashboard</Title>
       <Space
         direction="vertical"
         size="middle"
